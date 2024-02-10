@@ -130,7 +130,9 @@ mkdir -p "upload"
 
 cp "${OTA}" "upload/${VER_FILENAME}"
 # Also add recovery.img
-./payload-dumper-go -p recovery -o "upload" "${OTA}"
+#./payload-dumper-go -p recovery -o "upload" "${OTA}"
+unzip upload/*.zip recovery.img
+cp recovery.img upload/recovery.img
 mv "upload/recovery.img" "upload/recovery-${VER_FILENAME/.zip/.img}"
 
 echo "-- Generating release notes to STDOUT"
