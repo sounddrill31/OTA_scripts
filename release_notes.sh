@@ -13,6 +13,10 @@ case "${DEVICE}" in
         CODENAMES="viva,vida"
         GH_REPO="xiaomi-mt6781-devs/android_device_xiaomi_viva"
         ;;
+    "oxygen")
+        MARKETNAME="Mi Max 2 (4g)"
+        CODENAMES="oxygen"
+        GH_REPO="sounddrill31/android_device_xiaomi_oxygen-3"
 esac
 
 echo "LineageOS ${LINEAGE_VER} for ${MARKETNAME} (${CODENAMES}) ${BUILD_DATE}"

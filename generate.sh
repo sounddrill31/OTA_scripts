@@ -62,7 +62,7 @@ case "${SDK}" in
         exit 1
 esac
 
-VER_FILENAME="lineage-${LINEAGE_VER}-${BUILD_DATE}-UNOFFICIAL-${DEVICE}.zip"
+VER_FILENAME="lineage-${LINEAGE_VER}-${BUILD_DATE}-UNOFFICIAL-REMIX-${DEVICE}.zip"
 
 echo "-- Lineage ver: ${LINEAGE_VER}"
 echo "-- Finished reading props"
@@ -86,7 +86,7 @@ if [[ "${INIT}" == "false" ]]; then
             "id": "$(md5sum "${OTA}" | awk '{print $1}')",
             "romtype": "unofficial",
             "size": "$(stat -c%s "${OTA}")",
-            "url": "https://github.com/xiaomi-mt6781-devs/releases/releases/download/${TS}/${VER_FILENAME}",
+            "url": "https://github.com/sounddrill31/Releases/releases/download/${TS}/${VER_FILENAME}",
             "version": "${LINEAGE_VER}"
         }
     ]
@@ -129,9 +129,9 @@ echo "-- Adding upload files"
 mkdir -p "upload"
 
 cp "${OTA}" "upload/${VER_FILENAME}"
-# Also add boot.img
-payload-dumper-go -p boot -o "upload" "${OTA}"
-mv "upload/boot.img" "upload/boot-${VER_FILENAME/.zip/.img}"
+# Also add recovery.img
+payload-dumper-go -p recovery -o "upload" "${OTA}"
+mv "upload/recovery.img" "upload/recovery-${VER_FILENAME/.zip/.img}"
 
 echo "-- Generating release notes to STDOUT"
 
